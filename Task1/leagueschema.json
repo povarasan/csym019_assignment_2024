@@ -1,15 +1,34 @@
 {
-    "footballScoresAndFixtures": {
-      "url": "",
-      "data": []
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "league_name": {
+      "type": "string"
     },
-    "premierLeagueTable": {
-      "url": "",
-      "data": []
+    "month": {
+      "type": "string",
+      "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December)$"
     },
-    "topScorers": {
-      "url": "",
-      "data": []
+    "teams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "team_name": {
+            "type": "string"
+          },
+          "points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["team_name", "points", "rank"]
+      }
     }
-  }
-  
+  },
+  "required": ["league_name", "month", "teams"]
+}

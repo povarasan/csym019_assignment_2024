@@ -1,24 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Styles for headings */
-  h1 {
-    color: #007bff;
-  }
-  
-  /* Styles for paragraphs */
-  p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Styles for links */
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
