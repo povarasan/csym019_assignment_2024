@@ -1,21 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
-  fetch("league.json")
-      .then(response => response.json())
-      .then(data => {
-          const teamData = data.teams;
-          const scorerData = data.topScorers;
-          teamData.sort((a, b) => b.points - a.points); // Sort teams by points
-          assignPositions(teamData); // Assign positions dynamically
-          const table1 = generateTable(teamData, "Team Rankings", true);
-          const table2 = generateTable(scorerData, "Top Scorers", false);
-          const placeholder1 = document.querySelector("#team-rankings");
-          const placeholder2 = document.querySelector("#top-scorers");
-          placeholder1.appendChild(table1);
-          placeholder2.appendChild(table2);
-      })
-      .catch(error => {
-          console.error('Error fetching data:', error);
-      });
+    fetch("league.json")
+        .then(response => response.json())
+        .then(data => {
+            const teamData = data.teams;
+            const scorerData = data.topScorers;
+            teamData.sort((a, b) => b.points - a.points); // Sort teams by points
+            assignPositions(teamData); // Assign positions dynamically
+            scorerData.sort((a, b) => b.goals - a.goals); // Sort scorers by goals
+            const table1 = generateTable(teamData,"", true);
+            const table2 = generateTable(scorerData,"", false);
+            const placeholder1 = document.querySelector("#team-rankings");
+            const placeholder2 = document.querySelector("#top-scorers");
+           
+            if (placeholder1) {
+                placeholder1.appendChild(table1);
+            } else {
+                console.error('Team rankings placeholder not found.');
+            }
+            if (placeholder2) {
+                placeholder2.appendChild(table2);
+            } else {
+                console.error('Top scorers placeholder not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 });
 
 function generateTable(data, title, includeExtraColumns) {
@@ -24,7 +34,7 @@ function generateTable(data, title, includeExtraColumns) {
   caption.textContent = title;
   table.appendChild(caption);
   const headerRow = table.insertRow();
-  const headers = includeExtraColumns ? ["Position", "Team", "Played Games", "Goal Difference", "Points"] : ["Team/Player", "Goals", "Assists", "PlayedP", "Goals per 90", "Mins per Goal", "Total Shots", "Goal Conversion", "Shot Accuracy"];
+  const headers = includeExtraColumns ? ["Position", "Team", "Played Games", "Goal Difference", "Points"] : ["Player(Team)", "Goals", "Assists", "Played", "Goals per 90", "Mins per Goal", "Total Shots", "Goal Conversion", "Shot Accuracy"];
   
   headers.forEach(headerText => {
       const th = document.createElement("th");
