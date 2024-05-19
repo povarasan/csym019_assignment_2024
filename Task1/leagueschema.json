@@ -1,34 +1,62 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Football League Data",
   "type": "object",
   "properties": {
-    "league_name": {
-      "type": "string"
+    "fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "homeTeam": { "type": "string" },
+          "awayTeam": { "type": "string" },
+          "homeScore": { "type": "integer" },
+          "awayScore": { "type": "integer" }
+        },
+        "required": ["homeTeam", "awayTeam", "homeScore", "awayScore"]
+      }
     },
-    "month": {
-      "type": "string",
-      "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December)$"
+    "topScorers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": { "type": "integer" },
+          "player": { "type": "string" },
+          "team": { "type": "string" },
+          "goals": { "type": "integer" },
+          "assists": { "type": "integer" },
+          "played": { "type": "integer" },
+          "goalsPer90": { "type": "number" },
+          "minsPerGoal": { "type": "number" },
+          "totalShots": { "type": "integer" },
+          "goalConversion": { "type": "string" },
+          "shotAccuracy": { "type": "string" }
+        },
+        "required": ["position", "player", "team", "goals", "assists", "played", "goalsPer90", "minsPerGoal", "totalShots", "goalConversion", "shotAccuracy"]
+      }
     },
     "teams": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "team_name": {
-            "type": "string"
-          },
-          "points": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "rank": {
-            "type": "integer",
-            "minimum": 1
-          }
+          "position": { "type": "integer" },
+          "name": { "type": "string" },
+          "image": { "type": "string" },
+          "playedGames": { "type": "integer" },
+          "won": { "type": "integer" },
+          "drawn": { "type": "integer" },
+          "lost": { "type": "integer" },
+          "for": { "type": "integer" },
+          "against": { "type": "integer" },
+          "goalDifference": { "type": "integer" },
+          "points": { "type": "integer" },
+          "lastSixGames": { "type": "string" }
         },
-        "required": ["team_name", "points", "rank"]
+        "required": ["position", "name", "image", "playedGames", "won", "drawn", "lost", "for", "against", "goalDifference", "points", "lastSixGames"]
       }
     }
   },
-  "required": ["league_name", "month", "teams"]
+  "required": ["fixtures", "topScorers", "teams"]
 }

@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Rankings</title>
-    <link rel="stylesheet" href="league.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Rankings</title>
+<link rel="stylesheet" href="league.css">
 </head>
 <body>
-    <h1>Team Ranking</h1>
+<div class="team-table-container">
+    <h2>Fixtures Table</h2>
+    <div id="fixtures-table"></div>
+</div>
+
+<div class="team-table-container">
+    <h2>Team Rankings</h2>
     <div id="team-rankings"></div>
-    <script src="league.js"></script>
+</div>
+
+<!-- Button to navigate to topscores.html -->
+<div>
+    <button id="button-container">Go to Top Scorers</button>
+</div>
+
+<script src="league.js"></script>
+<script>
+// Add event listener for the button
+document.getElementById('button-container').addEventListener('click', function() {
+    window.location.href = 'topscorers.html';
+});
+</script>
 </body>
 </html>

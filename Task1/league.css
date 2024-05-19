@@ -1,45 +1,181 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+/* Body styling */
 body {
-  width: 80%;
-  margin: 0 auto; /* Center the body content */
-  background-color: #333;
+  font-family: Arial, sans-serif;
+  background-color:#bcbb93;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%; /* Take up full width */
-  margin: 0 auto; /* Center the table */
-  background-color: #fff; /* Change background color */
-  color: #333; /* Change text color */
-  border: 2px solid #ddd; /* Change border color */
+/* Container for button */
+#button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999; /* Adjust as needed */
+  background-color: #032447;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Add more styles as needed */
 }
 
+/* Heading style */
 h1 {
-  color: white; /* Change the color */
-  font-size: 36px; /* Change the font size */
-  text-align: center; /* Center align */
+  text-align: center;
+  margin-top: 30px;
+  color: #150959; /* Dark gray text color */
 }
 
-/* Style borders for the header cells */
-th {
-  border: 2px solid #ddd; /* Change border color */
-  padding: 15px; /* Increase padding */
-  text-align: center; /* Center align */
-  background-color: #f2f2f2; /* Change background color */
+h2 {
+  text-align: center;
+  color: #050561; /* Dark gray text color */
 }
 
-/* Style borders for the data cells */
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto; /* Center the table */
+  background-color: #fff; /* White background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #ddd; /* Add border */
+}
+
+th,
 td {
-  border: 2px solid #ddd; /* Change border color */
-  padding: 15px; /* Increase padding */
-  text-align: center; /* Center align */
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+  border-right: 1px solid #ddd; /* Light gray border */
 }
 
-/* Add hover effect to table rows */
+caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Top scorers table */
+#top-scorers td:first-child {
+  padding-left: 20px;
+}
+
+/* Hover effect for table rows */
 tr:hover {
-  background-color: #f5f5f5; /* Change hover background color */
+  background-color: #f2f2f2; /* Light gray background on hover */
 }
 
-/* Apply different background color to every other row for better readability */
-tr:nth-child(even) {
-  background-color: #f9f9f9; /* Change alternate row background color */
+/* Fixture list */
+.fixture-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px auto; /* Center the fixture list */
+}
+
+.fixture {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.fixture:hover {
+  transform: translateY(-5px); /* Move up slightly on hover */
+}
+
+/* Team table container */
+.team-table-container {
+  justify-content: center;
+  margin: 100px; /* Center the table container */
+}
+
+/* Additional styling for top scorers table */
+#top-scorers {
+  margin: 20px auto; /* Add margin around the table */
+  max-width: 800px; /* Limit the width for better readability */
+}
+
+/* Styling for top scorers table */
+#top-scorers table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #eaf6ff; /* Light blue background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #ddd; /* Add border */
+}
+
+#top-scorers th,
+#top-scorers td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+  border-right: 1px solid #ddd; /* Light gray border */
+}
+
+#top-scorers caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #007bff; /* Blue heading color */
+}
+
+#top-scorers tr:hover {
+  background-color: #d4eaff; /* Light blue background on hover */
+}
+
+#top-scorers td:first-child {
+  padding-left: 20px;
+}
+
+/* Additional styling for top teams table */
+#top-teams {
+  margin: 20px auto; /* Add margin around the table */
+  max-width: 800px; /* Limit the width for better readability */
+}
+
+/* Styling for top teams table */
+#top-teams table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffe6e6; /* Light red background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #ddd; /* Add border */
+}
+
+#top-teams th,
+#top-teams td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+  border-right: 1px solid #ddd; /* Light gray border */
+}
+
+#top-teams caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff0000; /* Red heading color */
+}
+
+#top-teams tr:hover {
+  background-color: #ffd9d9; /* Light red background on hover */
+}
+
+#top-teams td:first-child {
+  padding-left: 20px;
 }
